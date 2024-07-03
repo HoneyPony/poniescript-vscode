@@ -1,0 +1,25 @@
+{
+    "name": "poniescript-vscode",
+    "displayName": "poniescript-vscode",
+    "description": "Language support for PonieScript.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.91.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "poniescript",
+            "aliases": ["PonieScript", "poniescript"],
+            "extensions": [".poni"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "poniescript",
+            "scopeName": "source.poni",
+            "path": "./syntaxes/poniescript.tmLanguage.json"
+        }]
+    }
+}
