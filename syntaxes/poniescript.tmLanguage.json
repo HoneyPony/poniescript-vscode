@@ -7,6 +7,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#param-list"
 		}
 	],
 	"repository": {
@@ -14,7 +17,26 @@
 			"patterns": [{
 				"name": "keyword.control.poniescript",
 				"match": "\\b(if|while|for|return)\\b"
+			},
+			{
+				"name": "keyword.other.poniescript",
+				"match": "\\b(class|var|fun)\\b"
 			}]
+		},
+		"param-list": {
+			"begin": "(?<=fun\\s+)\\w+\\(",
+			"end": "\\)",
+			"patterns": [
+				{
+					"name": "variable.parameter",
+					"match": "\\w+(?=\\s*:)"
+				}
+			],
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function"
+				}
+			}
 		},
 		"strings": {
 			"name": "string.quoted.double.poniescript",
