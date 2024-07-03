@@ -6,6 +6,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#types"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -21,7 +24,15 @@
 			{
 				"name": "keyword.other.poniescript",
 				"match": "\\b(class|var|fun)\\b"
+			},
+			{
+				"name": "meta.preprocessor",
+				"match": "\\b(print|str)\\b"
 			}]
+		},
+		"types": {
+			"name": "entity.name.type",
+			"match": "\\b(int|float|Str|StrBuf|StrConst)\\b"
 		},
 		"param-list": {
 			"begin": "(?<=fun\\s+)\\w+\\(",
@@ -30,7 +41,8 @@
 				{
 					"name": "variable.parameter",
 					"match": "\\w+(?=\\s*:)"
-				}
+				},
+				{ "include": "#types" }
 			],
 			"beginCaptures": {
 				"0": {
