@@ -69,8 +69,21 @@
 			]
 		},
 		"line-comments": {
-			"name": "comment",
-			"match": "\\/\\/.*(\\n|\\b)"
+			"patterns": [
+				{
+					"name": "comment.line.poniescript.testexpect",
+					"match": "\\/\\/(!)(.*)(?:\\n|\\b)",
+					"captures": {
+						"1": { "name": "constant.character.escape.poniescript.commentop" },
+						"2": { "name": "string.unquoted.poniescript.test" }
+					}
+				},
+				{
+					"name": "comment.line.poniescript",
+					"match": "\\/\\/.*(?:\\n|\\b)"
+
+				}
+			]
 		}
 	},
 	"scopeName": "source.poni"
