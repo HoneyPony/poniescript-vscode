@@ -19,7 +19,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.poniescript",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(if|else|while|for|return)\\b"
 			},
 			{
 				"name": "keyword.other.poniescript",
@@ -28,11 +28,15 @@
 			{
 				"name": "meta.preprocessor",
 				"match": "\\b(print|str)\\b"
+			},
+			{
+				"name": "constant.language.poniescript.boolean",
+				"match": "\\b(true|false)\\b"
 			}]
 		},
 		"types": {
 			"name": "entity.name.type",
-			"match": "\\b(int|float|Str|StrBuf|StrConst)\\b"
+			"match": "\\b(int|float|bool|Str|StrBuf|StrConst)\\b"
 		},
 		"param-list": {
 			"begin": "(?<=fun\\s+)\\w+\\(",
