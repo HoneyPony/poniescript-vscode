@@ -13,6 +13,9 @@
 		},
 		{
 			"include": "#param-list"
+		},
+		{
+			"include": "#line-comments"
 		}
 	],
 	"repository": {
@@ -64,6 +67,10 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"line-comments": {
+			"name": "comment",
+			"match": "\\/\\/.*(\\n|\\b)"
 		}
 	},
 	"scopeName": "source.poni"
