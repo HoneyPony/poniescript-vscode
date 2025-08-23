@@ -26,7 +26,7 @@
 			},
 			{
 				"name": "keyword.other.poniescript",
-				"match": "\\b(class|var|fun)\\b"
+				"match": "\\b(class|var|fun|new)\\b"
 			},
 			{
 				"name": "meta.preprocessor",
