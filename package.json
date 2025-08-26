@@ -36,7 +36,13 @@
                     "description": "Arguments to pass to the LSP executable"
                 }
             }
-        }
+        },
+        "commands": [
+            {
+                "command": "poniescript.restartLanguageServer",
+                "title": "PonieScript: Restart Language Server"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
