@@ -11,6 +11,10 @@ export function activate(context: vscode.ExtensionContext) {
     const config = vscode.workspace.getConfiguration('poniescript');
     const lspPath = config.get<string>('languageServer.path', 'poniescript-lsp');
     const lspArgs = config.get<string[]>('languageServer.args', []);
+    const lspEnabled = config.get<boolean>('languageServer.enabled', false);
+
+    // Skip the LSP if it isn't enabled.
+    if (!lspEnabled) { return; }
 
     // Things to look into in the future: Debug options, etc.
     const serverOptions: ServerOptions = {

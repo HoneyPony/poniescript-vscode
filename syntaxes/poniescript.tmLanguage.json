@@ -22,7 +22,11 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.poniescript",
-				"match": "\\b(if|else|while|for|return)\\b"
+				"match": "\\b(if|else|while|loop|for|return)\\b"
+			},
+			{
+				"name": "keyword.conditional.poniescript",
+				"match": "\\b(and|or|not)\\n"
 			},
 			{
 				"name": "keyword.other.poniescript",
@@ -35,6 +39,10 @@
 			{
 				"name": "constant.language.poniescript.boolean",
 				"match": "\\b(true|false)\\b"
+			},
+			{
+				"name": "constant.language.poniescript.nil",
+				"match": "\\bnil\\b"
 			}]
 		},
 		"types": {
