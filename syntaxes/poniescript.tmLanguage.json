@@ -22,7 +22,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.poniescript",
-				"match": "\\b(if|else|while|loop|for|return)\\b"
+				"match": "\\b(if|else|while|loop|for|return|break)\\b"
 			},
 			{
 				"name": "keyword.conditional.poniescript",
@@ -34,7 +34,7 @@
 			},
 			{
 				"name": "meta.preprocessor",
-				"match": "\\b(print|str)\\b"
+				"match": "\\b(print|str|lerp)\\b"
 			},
 			{
 				"name": "constant.language.poniescript.boolean",
