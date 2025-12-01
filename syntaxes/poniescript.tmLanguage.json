@@ -26,7 +26,7 @@
 			},
 			{
 				"name": "keyword.conditional.poniescript",
-				"match": "\\b(and|or|not)\\n"
+				"match": "\\b(and|or|not)\\b"
 			},
 			{
 				"name": "keyword.other.poniescript",
