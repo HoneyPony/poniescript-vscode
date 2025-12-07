@@ -47,7 +47,7 @@
 		},
 		"types": {
 			"name": "entity.name.type",
-			"match": "\\b(int|float|bool|Str|StrBuf|StrConst)\\b"
+			"match": "\\b(int|float|bool|Str|StrBuf|StrConst|vec(2|3|4)i?)\\b"
 		},
 		"param-list": {
 			"begin": "(?<=fun\\s+)\\w+\\(",
