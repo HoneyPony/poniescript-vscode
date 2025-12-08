@@ -63,17 +63,17 @@ export function activate(context: vscode.ExtensionContext) {
         })
     );
 
-    // vscode.workspace.onDidOpenTextDocument(doc => {
-    //     if (doc.uri.scheme === 'poniescript-docs') {
-    //         showDocsWebview(doc.uri);
-    //     }
-    // });
-
-    vscode.workspace.registerTextDocumentContentProvider('poniescript-docs', {
-        provideTextDocumentContent(uri) {
-            return "hello";
+    vscode.workspace.onDidOpenTextDocument(doc => {
+        if (doc.uri.scheme === 'poniescript-docs') {
+            showDocsWebview(doc.uri);
         }
     });
+
+    // vscode.workspace.registerTextDocumentContentProvider('poniescript-docs', {
+    //     provideTextDocumentContent(uri) {
+    //         return "hello";
+    //     }
+    // });
 
     vscode.window.registerUriHandler({
         handleUri(uri: vscode.Uri) {
@@ -85,6 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
         "poniescript.docsViewer",
         new PoniescriptDocsEditor()
     );
+
 
     // Skip the LSP if it isn't enabled.
     if (!lspEnabled) { return; }
