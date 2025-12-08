@@ -51,6 +51,17 @@
                 "command": "poniescript.showDocs2",
                 "title": "PonieScript: Show Markdown Docs"
             }
+        ],
+        "customEditors": [
+            {
+                "viewType": "poniescript.docsViewer",
+                "displayName": "Poniescript Docs",
+                "selector": [
+                    {
+                        "filenamePattern": "*.poniescript-docs"
+                    }
+                ]
+            }
         ]
     },
     "scripts": {

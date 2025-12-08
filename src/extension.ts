@@ -33,6 +33,17 @@ function showDocsWebview(uri: vscode.Uri) {
     panel.webview.html = getTestDocHtml();
 }
 
+class PoniescriptDocsEditor implements vscode.CustomReadonlyEditorProvider<vscode.CustomDocument> {
+    async openCustomDocument(uri: vscode.Uri) {
+        return { uri, dispose() {} };
+    }
+
+    resolveCustomEditor(document: vscode.CustomDocument, webviewPanel: vscode.WebviewPanel, token: vscode.CancellationToken): void {
+        webviewPanel.webview.options = { enableScripts: true };
+        webviewPanel.webview.html = `<h1>Rendered for ${document.uri}</h1>`;
+    }
+}
+
 export function activate(context: vscode.ExtensionContext) {
     const config = vscode.workspace.getConfiguration('poniescript');
     const lspPath = config.get<string>('languageServer.path', 'poniescript-lsp');
@@ -47,7 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
             //showDocsWebview(vscode.Uri.parse("poniescript-docs://index"));
             vscode.commands.executeCommand(
                 'vscode.open',
-                vscode.Uri.parse(uriPrefix + "/index")
+                vscode.Uri.parse('poniescript-docs://index.poniescript-docs')
             );
         })
     );
@@ -58,17 +69,22 @@ export function activate(context: vscode.ExtensionContext) {
     //     }
     // });
 
-    // vscode.workspace.registerTextDocumentContentProvider('poniescript-docs', {
-    //     provideTextDocumentContent(uri) {
-    //         return getTestDocHtml();
-    //     }
-    // });
+    vscode.workspace.registerTextDocumentContentProvider('poniescript-docs', {
+        provideTextDocumentContent(uri) {
+            return "hello";
+        }
+    });
 
     vscode.window.registerUriHandler({
         handleUri(uri: vscode.Uri) {
             showDocsWebview(uri);
         }
     });
+
+    vscode.window.registerCustomEditorProvider(
+        "poniescript.docsViewer",
+        new PoniescriptDocsEditor()
+    );
 
     // Skip the LSP if it isn't enabled.
     if (!lspEnabled) { return; }
