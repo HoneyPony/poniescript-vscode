@@ -13,6 +13,33 @@ export function activate(context: vscode.ExtensionContext) {
     const lspArgs = config.get<string[]>('languageServer.args', []);
     const lspEnabled = config.get<boolean>('languageServer.enabled', false);
 
+    console.log("meow meow meow");
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('poniescript.showDocs', async() => {
+            const panel = vscode.window.createWebviewPanel(
+                'poniescriptDocs',
+                'PonieScript Docs',
+                vscode.ViewColumn.One,
+                { enableScripts: false }
+            );
+
+            panel.webview.html = 
+`<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none';">
+    </head>
+    <body>
+        <h1>PonieScript Docs</h1>
+        <h3>print()</h3>
+        <p>Prints any series of expressions.</p>
+    </body>
+</html>`;
+        })
+    );
+
     // Skip the LSP if it isn't enabled.
     if (!lspEnabled) { return; }
 

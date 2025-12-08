@@ -41,6 +41,10 @@
             {
                 "command": "poniescript.restartLanguageServer",
                 "title": "PonieScript: Restart Language Server"
+            },
+            {
+                "command": "poniescript.showDocs",
+                "title": "PonieScript: Show Docs"
             }
         ]
     },
