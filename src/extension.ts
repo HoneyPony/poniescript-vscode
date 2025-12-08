@@ -40,6 +40,15 @@ export function activate(context: vscode.ExtensionContext) {
         })
     );
 
+    context.subscriptions.push(
+        vscode.commands.registerCommand('poniescript.showDocs2', async() => {
+            vscode.commands.executeCommand(
+                'vscode.open',
+                vscode.Uri.joinPath(context.extensionUri, 'docs', 'print.md')
+            );
+        })
+    );
+
     // Skip the LSP if it isn't enabled.
     if (!lspEnabled) { return; }
 

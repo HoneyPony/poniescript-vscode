@@ -45,6 +45,10 @@
             {
                 "command": "poniescript.showDocs",
                 "title": "PonieScript: Show Docs"
+            },
+            {
+                "command": "poniescript.showDocs2",
+                "title": "PonieScript: Show Markdown Docs"
             }
         ]
     },
