@@ -52,18 +52,6 @@ export function activate(context: vscode.ExtensionContext) {
         })
     );
 
-    // vscode.workspace.onDidOpenTextDocument(doc => {
-    //     if (doc.uri.scheme === 'poniescript-docs') {
-    //         showDocsWebview(doc.uri);
-    //     }
-    // });
-
-    // vscode.workspace.registerTextDocumentContentProvider('poniescript-docs', {
-    //     provideTextDocumentContent(uri) {
-    //         return getTestDocHtml();
-    //     }
-    // });
-
     vscode.window.registerUriHandler({
         handleUri(uri: vscode.Uri) {
             showDocsWebview(uri);
