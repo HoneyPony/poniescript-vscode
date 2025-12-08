@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
     const clientOptions: LanguageClientOptions = {
         documentSelector: [{ scheme: 'file', language: 'poniescript' }],
         synchronize: {
-            fileEvents: vscode.workspace.createFileSystemWatcher("**/.poni")
+            fileEvents: vscode.workspace.createFileSystemWatcher("**/*.poni")
         }
     };
 
