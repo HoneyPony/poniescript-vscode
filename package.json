@@ -1,5 +1,6 @@
 {
     "name": "poniescript-vscode",
+    "publisher": "poniescript",
     "displayName": "PonieScript Language Support",
     "description": "Language support for PonieScript.",
     "version": "0.0.1",

@@ -7,25 +7,8 @@ import {
 
 let client: LanguageClient;
 
-export function activate(context: vscode.ExtensionContext) {
-    const config = vscode.workspace.getConfiguration('poniescript');
-    const lspPath = config.get<string>('languageServer.path', 'poniescript-lsp');
-    const lspArgs = config.get<string[]>('languageServer.args', []);
-    const lspEnabled = config.get<boolean>('languageServer.enabled', false);
-
-    console.log("meow meow meow");
-
-    context.subscriptions.push(
-        vscode.commands.registerCommand('poniescript.showDocs', async() => {
-            const panel = vscode.window.createWebviewPanel(
-                'poniescriptDocs',
-                'PonieScript Docs',
-                vscode.ViewColumn.One,
-                { enableScripts: false }
-            );
-
-            panel.webview.html = 
-`<!DOCTYPE html>
+function getTestDocHtml(): string {
+    return `<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -37,23 +20,55 @@ export function activate(context: vscode.ExtensionContext) {
         <p>Prints any series of expressions.</p>
     </body>
 </html>`;
-        })
+}
+
+function showDocsWebview(uri: vscode.Uri) {
+    const panel = vscode.window.createWebviewPanel(
+        'poniescriptDocs',
+        'PonieScript Docs',
+        vscode.ViewColumn.One,
+        { enableScripts: false }
     );
 
-    vscode.workspace.registerTextDocumentContentProvider('poniescript-docs', {
-        provideTextDocumentContent(uri) {
-            return "PonieScript Docs";
-        }
-    });
+    panel.webview.html = getTestDocHtml();
+}
+
+export function activate(context: vscode.ExtensionContext) {
+    const config = vscode.workspace.getConfiguration('poniescript');
+    const lspPath = config.get<string>('languageServer.path', 'poniescript-lsp');
+    const lspArgs = config.get<string[]>('languageServer.args', []);
+    const lspEnabled = config.get<boolean>('languageServer.enabled', false);
+
+    var uriPrefix = vscode.env.uriScheme + "://" + "poniescript.poniescript-vscode";
+    console.log("poniescript: uriPrefix = ", uriPrefix);
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('poniescript.showDocs2', async() => {
+        vscode.commands.registerCommand('poniescript.showDocs', async() => {
+            //showDocsWebview(vscode.Uri.parse("poniescript-docs://index"));
             vscode.commands.executeCommand(
-                'markdown.showPreview',
-                vscode.Uri.parse('poniescript-docs://index.md')
+                'vscode.open',
+                vscode.Uri.parse(uriPrefix + "/index")
             );
         })
     );
+
+    // vscode.workspace.onDidOpenTextDocument(doc => {
+    //     if (doc.uri.scheme === 'poniescript-docs') {
+    //         showDocsWebview(doc.uri);
+    //     }
+    // });
+
+    // vscode.workspace.registerTextDocumentContentProvider('poniescript-docs', {
+    //     provideTextDocumentContent(uri) {
+    //         return getTestDocHtml();
+    //     }
+    // });
+
+    vscode.window.registerUriHandler({
+        handleUri(uri: vscode.Uri) {
+            showDocsWebview(uri);
+        }
+    });
 
     // Skip the LSP if it isn't enabled.
     if (!lspEnabled) { return; }
