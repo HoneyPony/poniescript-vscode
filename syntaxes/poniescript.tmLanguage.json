@@ -12,6 +12,9 @@
 			"include": "#strings"
 		},
 		{
+			"include": "#colors"
+		},
+		{
 			"include": "#param-list"
 		},
 		{
@@ -75,6 +78,15 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"colors": {
+			"name": "constant.rgb-value.poniescript",
+			"match": "(\\()(#)[0-9a-fA-F]*(\\))",
+			"captures": {
+				"1": { "name": "string.unquoted.poniescript.rgb-value" },
+				"2": { "name": "constant.character.escape.poniescript.rgb-hash" },
+				"3": { "name": "string.unquoted.poniescript.rgb-value" }
+			}
 		},
 		"line-comments": {
 			"patterns": [
