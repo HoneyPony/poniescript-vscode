@@ -80,8 +80,8 @@
 			]
 		},
 		"colors": {
-			"name": "constant.rgb-value.poniescript",
-			"match": "(\\()(#)[0-9a-fA-F]*(\\))",
+			"name": "invalid.illegal.poniescript.rgb-value",
+			"match": "(\\()(#[0-9a-fA-F]*)[^\\)]*(\\))",
 			"captures": {
 				"1": { "name": "string.unquoted.poniescript.rgb-value" },
 				"2": { "name": "constant.character.escape.poniescript.rgb-hash" },
