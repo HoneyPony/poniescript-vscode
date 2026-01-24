@@ -104,6 +104,10 @@
 
 				}
 			]
+		},
+		"annotations": {
+			"name": "entity.name.function.decorator.poniescript",
+			"match": "@(?:inner)"
 		}
 	},
 	"scopeName": "source.poni"
