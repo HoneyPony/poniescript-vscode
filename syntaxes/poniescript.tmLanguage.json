@@ -19,6 +19,9 @@
 		},
 		{
 			"include": "#line-comments"
+		},
+		{
+			"include": "#annotations"
 		}
 	],
 	"repository": {
