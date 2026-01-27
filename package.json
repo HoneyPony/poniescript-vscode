@@ -62,6 +62,13 @@
                     }
                 ]
             }
+        ],
+        "iconThemes": [
+            {
+                "id": "poniescript-icons",
+                "label": "PonieScript Icons",
+                "path": "./icons/poniescript-icon-theme.json"
+            }
         ]
     },
     "scripts": {

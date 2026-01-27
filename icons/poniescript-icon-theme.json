@@ -1,0 +1,10 @@
+{
+    "iconDefinitions": {
+        "poniescript-source": {
+            "iconPath": "./poniescript-source.svg"
+        }
+    },
+    "languageIds": {
+        "poniescript": "poniescript-source"
+    }
+}
