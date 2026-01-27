@@ -16,7 +16,11 @@
             "id": "poniescript",
             "aliases": ["PonieScript", "poniescript"],
             "extensions": [".poni"],
-            "configuration": "./language-configuration.json"
+            "configuration": "./language-configuration.json",
+            "icon": {
+                "light": "./icons/poniescript-source.svg",
+                "dark": "./icons/poniescript-source.svg"
+            }
         }],
         "grammars": [{
             "language": "poniescript",
@@ -61,13 +65,6 @@
                         "filenamePattern": "*.poniescript-docs"
                     }
                 ]
-            }
-        ],
-        "iconThemes": [
-            {
-                "id": "poniescript-icons",
-                "label": "PonieScript Icons",
-                "path": "./icons/poniescript-icon-theme.json"
             }
         ]
     },
